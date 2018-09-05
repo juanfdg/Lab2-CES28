@@ -32,7 +32,7 @@ public class VetTest {
     public void testScheduleConsult() {
         assertEquals(0, juan.getConsults().size());
 
-        juan.scheduleConsult(nick, treatment, date);
+        juan.scheduleConsult(treatment, date);
         assertEquals(1, juan.getConsults().size());
 
         Consult consult = juan.getConsult(date);
@@ -40,5 +40,24 @@ public class VetTest {
         assertEquals(treatment, consult.getTreatment());
         assertEquals(date, consult.getDate());
         assertNull(consult.getDiagnosis());
+    }
+
+    @Test
+    public void testListSymptom() {
+        juan.scheduleConsult(treatment, date);
+
+        Consult consult = juan.getConsult(date);
+        juan.listSymptoms("Dor de barriga", consult);
+        assertEquals("Dor de barriga", consult.getSymptoms());
+    }
+
+    @Test
+    public void testDiagsone() {
+        juan.scheduleConsult(treatment, date);
+
+        Consult consult = juan.getConsult(date);
+        juan.listSymptoms("Dor de barriga", consult);
+        juan.diagnose("Diarreia", consult);
+        assertEquals("Diarreia", consult.getDiagnosis());
     }
 }

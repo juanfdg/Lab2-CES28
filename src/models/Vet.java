@@ -16,15 +16,15 @@ public class Vet{
     }
     public Map<Date, Consult> getConsults() { return consults; }
 
-    public void listSymptoms(Animal animal, String symptoms, Consult c) {
+    public void listSymptoms(String symptoms, Consult consult) {
 
     }
 
-    public void diagnose(Animal animal, String diagnostic, Consult c) {
+    public void diagnose(String diagnostic, Consult c) {
 
     }
 
-    public void scheduleConsult(Animal animal, Treatment treatment, Date date) {
+    public void scheduleConsult(Treatment treatment, Date date) {
 
     }
 

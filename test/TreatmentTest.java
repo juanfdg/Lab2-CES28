@@ -65,6 +65,7 @@ public class TreatmentTest {
 
         Consult consult1 = juan.getConsult(date1);
         assertEquals(nick.getTreatments().elementAt(0), treatment1);
+        assertEquals(treatment1.getConsults().elementAt(0), consult1);
 
         juan.listSymptoms("Dor na barriga", consult1);
         juan.diagnose("Diarreia", consult1);
@@ -75,6 +76,7 @@ public class TreatmentTest {
 
         Consult consult2 = juan.getConsult(date2);
         assertEquals(nick.getTreatments().elementAt(1), treatment2);
+        assertEquals(treatment2.getConsults().elementAt(0), consult2);
 
         juan.listSymptoms("Dor na orelha", consult2);
         juan.diagnose("Olherite", consult2);

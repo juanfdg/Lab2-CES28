@@ -9,6 +9,7 @@ public class Vet{
 
     public Vet(String name) {
         this.name = name;
+        consults = new HashMap<Date, Consult>();
     }
 
     public String getName() { return name; }

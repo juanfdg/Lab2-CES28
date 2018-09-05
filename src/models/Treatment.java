@@ -9,6 +9,7 @@ public class Treatment {
 
     public Treatment(Animal animal){
         this.animal = animal;
+        consults = new Vector<Consult>();
     }
 
     public Animal getAnimal() { return animal; }

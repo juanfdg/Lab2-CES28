@@ -18,23 +18,23 @@ public class TreatmentTest {
 
     @Test
     public void testOneConsult() {
-        juan.scheduleConsult(nick, new Treatment(nick), new Date(2018,8,21));
+        juan.scheduleConsult(new Treatment(nick), new Date(2018,8,21));
         Consult c = juan.getConsult(new Date(2018,8,21));
-        juan.listSymptoms(nick, "Dor na barriga", c);
-        juan.diagnose(nick, "Diarreia", c);
+        juan.listSymptoms("Dor na barriga", c);
+        juan.diagnose("Diarreia", c);
     }
 
     @Test
     public void testTwoConsults() {
-        juan.scheduleConsult(nick, new Treatment(nick), new Date(2018,8,21));
+        juan.scheduleConsult(new Treatment(nick), new Date(2018,8,21));
 
         Consult c1 = juan.getConsult(new Date(2018,8,21));
-        juan.listSymptoms(nick, "Dor na barriga", c1);
-        juan.diagnose(nick, "Diarreia", c1);
-        juan.scheduleConsult(nick, c1.getTreatment(), new Date(2018,8,22));
+        juan.listSymptoms("Dor na barriga", c1);
+        juan.diagnose("Diarreia", c1);
+        juan.scheduleConsult(c1.getTreatment(), new Date(2018,8,22));
 
         Consult c2 = juan.getConsult(new Date(2018,8,22));
-        juan.listSymptoms(nick, "Dor na orelha", c2);
-        juan.diagnose(nick, "Olherite", c2);
+        juan.listSymptoms("Dor na orelha", c2);
+        juan.diagnose("Olherite", c2);
     }
 }

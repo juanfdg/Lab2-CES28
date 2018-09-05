@@ -23,6 +23,10 @@ public class Vet{
         consult.setDiagnosis(diagnosis);
     }
 
+    public Treatment startTreatment(Animal animal){
+        return  new Treatment(animal);
+    }
+
     public void scheduleConsult(Treatment treatment, Date date) {
         Consult consult = new Consult(treatment, this, date);
         treatment.addConsult(consult);

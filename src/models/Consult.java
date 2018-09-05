@@ -14,6 +14,8 @@ public class Consult {
         this.treatment = treatment;
         this.vet = vet;
         this.date = date;
+        symptoms = null;
+        diagnosis = null;
     }
 
     public Treatment getTreatment() {

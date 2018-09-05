@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 public class VetTest {
@@ -30,12 +31,12 @@ public class VetTest {
     public void testScheduleConsult() {
         assertEquals(0, juan.getConsults().size());
 
-        juan.scheduleConsult(nick, new Treatment(nick), date);
+        juan.scheduleConsult(new Treatment(nick), date);
         assertEquals(1, juan.getConsults().size());
 
         Consult c = juan.getConsult(date);
         assertNull(c.getSymptoms());
-        assertNull(c.getTreatment());
+        assertNotNull(c.getTreatment());
         assertEquals(date, c.getDate());
         assertNull(c.getDiagnosis());
     }

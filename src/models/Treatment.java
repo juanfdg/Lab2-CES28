@@ -4,7 +4,7 @@ import java.util.Vector;
 
 public class Treatment {
     private Animal animal;
-    private String history;
+    private String description;
     private Vector<Consult> consults;
 
     public Treatment(Animal animal){
@@ -12,14 +12,10 @@ public class Treatment {
     }
 
     public Animal getAnimal() { return animal; }
-    public String getHistory() {
-        return history;
-    }
-    public Vector<Consult> getConsults() {
-        return consults;
-    }
+    public String getHistory() { return description; }
+    public Vector<Consult> getConsults() { return consults; }
 
-    public void setHistory(String history) { this.history = history; }
+    public void setDescription(String description) { this.description = description; }
     public void addConsult(Consult consult){ consults.add(consult); }
 
 }

@@ -1,34 +1,34 @@
 package models;
 
 import java.util.Date;
-import java.util.Map;
+import java.util.HashMap;
 
 public class Vet{
     private String name;
-    private Map<Date, Consult> consults;
+    private HashMap<Date, Consult> consults;
 
     public Vet(String name) {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-    public Map<Date, Consult> getConsults() { return consults; }
+    public String getName() { return name; }
+    public HashMap<Date, Consult> getConsults() { return consults; }
 
-    public void listSymptoms(Animal animal, String symptoms, Consult c) {
-
+    public void listSymptoms(String symptoms, Consult consult) {
+        consult.setSymptoms(symptoms);
     }
 
-    public void diagnose(Animal animal, String diagnostic, Consult c) {
-
+    public void diagnose(String diagnosis, Consult consult) {
+        consult.setDiagnosis(diagnosis);
     }
 
-    public void scheduleConsult(Animal animal, Treatment treatment, Date date) {
-
+    public void scheduleConsult(Treatment treatment, Date date) {
+        Consult consult = new Consult(treatment, this, date);
+        treatment.addConsult(consult);
+        consults.put(date, consult);
     }
 
     public Consult getConsult(Date date) {
-        return null;
+        return consults.get(date);
     }
 }

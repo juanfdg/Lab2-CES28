@@ -64,7 +64,7 @@ public class TreatmentTest {
         assertEquals(1, nick.getTreatments().size());
 
         Consult consult1 = juan.getConsult(date1);
-        assertEquals(nick.getTreatments().elementAt(0), consult1);
+        assertEquals(nick.getTreatments().elementAt(0), treatment1);
 
         juan.listSymptoms("Dor na barriga", consult1);
         juan.diagnose("Diarreia", consult1);
@@ -74,7 +74,7 @@ public class TreatmentTest {
         assertEquals(2, nick.getTreatments().size());
 
         Consult consult2 = juan.getConsult(date2);
-        assertEquals(nick.getTreatments().elementAt(1), consult2);
+        assertEquals(nick.getTreatments().elementAt(1), treatment2);
 
         juan.listSymptoms("Dor na orelha", consult2);
         juan.diagnose("Olherite", consult2);

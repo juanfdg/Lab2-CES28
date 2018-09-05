@@ -1,16 +1,20 @@
 package models;
 
+import java.util.Vector;
 
-public class Vet {
-    public Vet(String name, int age, Client.Sex sex, String email) {
+public class Vet{
+    private String name;
+    private Vector<Consult> consults;
 
+    public String getName() {
+        return name;
     }
 
-    public void diagnose(Animal animal, String diagnostic, Consult c) {
-
+    public Vector getConsults() {
+        return consults;
     }
 
-    public void listSymptoms(Animal animal, String symptoms, Consult c) {
-
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -11,7 +11,7 @@ public class Client {
     private int age;
     private Sex sex;
     private String email;
-    private Vector animals;
+    private Vector<Animal> animals;
 
     public Client(String name, int age, Sex sex, String email) {
         this.name = name;

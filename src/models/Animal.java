@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Vector;
+
 public class Animal {
     public enum  Sex{
         M, F, ND;
@@ -9,6 +11,7 @@ public class Animal {
     private String name;
     private Sex sex;
     private int age;
+    private Vector<Treatment> treatments;
 
     public Animal(Client client, String name, Sex sex, int age) {
         this.client = client;
@@ -34,6 +37,10 @@ public class Animal {
         return age;
     }
 
+    public Vector getTreatments(){
+        return treatments;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -44,5 +51,9 @@ public class Animal {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public void startTreatment(Consult consult){
+        treatments.add(new Treatment(consult));
     }
 }

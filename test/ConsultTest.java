@@ -13,6 +13,7 @@ public class ConsultTest {
     private Vet vet;
     private Client victor;
     private Treatment t;
+    private Date date;
 
     @Before
     public void setUp() throws Exception {
@@ -21,12 +22,13 @@ public class ConsultTest {
         vet = new Vet("Vet");
         t = new Treatment(nick);
         c = new Consult(t, vet, new Date(2018,8,21));
+        date = new Date(2018,8,21);
     }
 
     @Test
     public void testConstructor() {
-        assertEquals(c.getTreatment(), t);
-        assertEquals(c.getDate(), new Date(2018, 8, 21));
+        assertEquals(t, c.getTreatment());
+        assertEquals(date, c.getDate());
         assertNull(c.getSymptoms());
         assertNull(c.getDiagnosis());
     }

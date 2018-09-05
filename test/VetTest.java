@@ -13,6 +13,7 @@ public class VetTest {
     private Client victor;
     private Animal nick;
     private Date date;
+    private Treatment treatment;
 
     @Before
     public void setUp() throws Exception {
@@ -20,6 +21,7 @@ public class VetTest {
         victor = new Client("Victor", 21, Client.Sex.M, "salesrvictor@gmail.com");
         nick = new Animal(victor, "nick", Animal.Sex.M, 2);
         date = new Date(2018,8,21);
+        treatment = new Treatment(nick);
     }
 
     @Test
@@ -31,13 +33,32 @@ public class VetTest {
     public void testScheduleConsult() {
         assertEquals(0, juan.getConsults().size());
 
-        juan.scheduleConsult(new Treatment(nick), date);
+        juan.scheduleConsult(treatment, date);
         assertEquals(1, juan.getConsults().size());
 
-        Consult c = juan.getConsult(date);
-        assertNull(c.getSymptoms());
-        assertNotNull(c.getTreatment());
-        assertEquals(date, c.getDate());
-        assertNull(c.getDiagnosis());
+        Consult consult = juan.getConsult(date);
+        assertNull(consult.getSymptoms());
+        assertEquals(treatment, consult.getTreatment());
+        assertEquals(date, consult.getDate());
+        assertNull(consult.getDiagnosis());
+    }
+
+    @Test
+    public void testListSymptom() {
+        juan.scheduleConsult(treatment, date);
+
+        Consult consult = juan.getConsult(date);
+        juan.listSymptoms("Dor de barriga", consult);
+        assertEquals("Dor de barriga", consult.getSymptoms());
+    }
+
+    @Test
+    public void testDiagsone() {
+        juan.scheduleConsult(treatment, date);
+
+        Consult consult = juan.getConsult(date);
+        juan.listSymptoms("Dor de barriga", consult);
+        juan.diagnose("Diarreia", consult);
+        assertEquals("Diarreia", consult.getDiagnosis());
     }
 }

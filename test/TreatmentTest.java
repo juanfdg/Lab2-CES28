@@ -1,7 +1,4 @@
-import models.Animal;
-import models.Client;
-import models.Treatment;
-import models.Vet;
+import models.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,8 +19,22 @@ public class TreatmentTest {
     @Test
     public void testOneConsult() {
         juan.scheduleConsult(nick, new Treatment(nick), new Date(2018,8,21));
-        //TODO: Pensar em como fazer o caso de teste
-        //juan.listSymptoms(nick, "Dor na barriga", c);
-        //juan.diagnose(nick, "Diarreia", c);
+        Consult c = juan.getConsult(new Date(2018,8,21));
+        juan.listSymptoms(nick, "Dor na barriga", c);
+        juan.diagnose(nick, "Diarreia", c);
+    }
+
+    @Test
+    public void testTwoConsults() {
+        juan.scheduleConsult(nick, new Treatment(nick), new Date(2018,8,21));
+
+        Consult c1 = juan.getConsult(new Date(2018,8,21));
+        juan.listSymptoms(nick, "Dor na barriga", c1);
+        juan.diagnose(nick, "Diarreia", c1);
+        juan.scheduleConsult(nick, c1.getTreatment(), new Date(2018,8,22));
+
+        Consult c2 = juan.getConsult(new Date(2018,8,22));
+        juan.listSymptoms(nick, "Dor na orelha", c2);
+        juan.diagnose(nick, "Olherite", c2);
     }
 }

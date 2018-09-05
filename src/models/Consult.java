@@ -21,11 +21,9 @@ public class Consult {
     public Date getDate() {
         return date;
     }
-
     public String getSymptoms() {
         return symptoms;
     }
-
     public String getDiagnosis() {
         return diagnosis;
     }
@@ -33,12 +31,14 @@ public class Consult {
     public void setDate(Date date) {
         this.date = date;
     }
-
     public void setSymptoms(String symptoms) {
         this.symptoms = symptoms;
     }
-
     public void setDiagnosis(String diagnosis) {
         this.diagnosis = diagnosis;
+    }
+
+    public Treatment getTreatment() {
+        return null;
     }
 }

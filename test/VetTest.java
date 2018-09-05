@@ -1,38 +1,42 @@
-import models.Animal;
-import models.Client;
-import models.Treatment;
-import models.Vet;
+import models.*;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class VetTest {
     private Vet juan;
     private Client victor;
     private Animal nick;
+    private Date date;
 
     @Before
     public void setUp() throws Exception {
         juan = new Vet("Juan");
         victor = new Client("Victor", 21, Client.Sex.M, "salesrvictor@gmail.com");
         nick = new Animal(victor, "nick", Animal.Sex.M, 2);
+        date = new Date(2018,8,21);
     }
 
     @Test
     public void testConstructor() {
-        assertEquals(juan.getName(), "Juan");
+        assertEquals("Juan", juan.getName());
     }
 
     @Test
     public void testScheduleConsult() {
-        assertEquals(juan.getConsults().size(), 0);
+        assertEquals(0, juan.getConsults().size());
 
-        juan.scheduleConsult(nick, new Treatment(nick), new Date(2018,8,21));
-        assertEquals(juan.getConsults().size(), 1);
+        juan.scheduleConsult(nick, new Treatment(nick), date);
+        assertEquals(1, juan.getConsults().size());
 
-        //TODO: Continue
+        Consult c = juan.getConsult(date);
+        assertNull(c.getSymptoms());
+        assertNull(c.getTreatment());
+        assertEquals(date, c.getDate());
+        assertNull(c.getDiagnosis());
     }
 }

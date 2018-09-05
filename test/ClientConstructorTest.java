@@ -15,9 +15,9 @@ public class ClientConstructorTest {
 
     @Test
     public void testClientConstructor() {
-        assertEquals(gui.getName(), "Guilherme");
-        assertEquals(gui.getAge(), 21);
-        assertEquals(gui.getSex(), Client.Sex.M);
-        assertEquals(gui.getEmail(), "guipcleao@gmail.com");
+        assertEquals("Guilherme", gui.getName());
+        assertEquals(21, gui.getAge());
+        assertEquals(Client.Sex.M, gui.getSex());
+        assertEquals("guipcleao@gmail.com", gui.getEmail());
     }
 }

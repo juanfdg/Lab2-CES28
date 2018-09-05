@@ -29,6 +29,7 @@ public class ConsultTest {
     public void testConstructor() {
         assertEquals(treatment, consult.getTreatment());
         assertEquals(date, consult.getDate());
+        assertEquals(vet, consult.getVet());
         assertNull(consult.getSymptoms());
         assertNull(consult.getDiagnosis());
     }

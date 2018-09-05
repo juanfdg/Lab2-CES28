@@ -57,6 +57,8 @@ public class TreatmentTest {
 
     @Test
     public void testTwoTreatments_OneConsult() {
+        assertEquals(0, animal.getTreatments().size());
+
         Treatment treatment1 = treatment;
         vet.scheduleConsult(treatment1, date1);
         assertEquals(1, animal.getTreatments().size());

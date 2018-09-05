@@ -4,7 +4,7 @@ import java.util.Vector;
 
 public class Animal {
     public enum  Sex{
-        M, F, ND;
+        M, F, ND
     }
 
     private Client client;
@@ -54,6 +54,6 @@ public class Animal {
     }
 
     public void startTreatment(Consult consult){
-        treatments.add(new Treatment(consult));
+
     }
 }

@@ -4,7 +4,7 @@ import java.util.Vector;
 
 public class Client {
     public enum  Sex{
-        M, F, ND;
+        M, F, ND
     }
 
     private String name;
@@ -18,7 +18,7 @@ public class Client {
         this.age = age;
         this.sex = sex;
         this.email = email;
-        animals = new Vector();
+        this.animals = new Vector<>();
     }
 
     public String getName(){
@@ -58,6 +58,6 @@ public class Client {
     }
 
     public void addAnimal(Animal animal){
-        animals.add(animal);
+        //animals.add(animal);
     }
 }

@@ -10,24 +10,11 @@ public class Consult {
     private String symptoms;
     private String diagnosis;
 
-    //First consult constructor
-    public Consult(Animal animal, Vet vet,
+    public Consult(Treatment treatment, Vet vet,
                    Date date) {
-        this.animal = animal;
-        animal.startTreatment(this);
-        this.treatment = animal.getTreatments().lastElement();
+        this.treatment = treatment;
+        this.animal = treatment.getAnimal();
         this.vet = vet;
-        vet.getConsults().add(this);
-        this.date = date;
-    }
-
-    //Next consult construtor
-    public Consult(Treatment treatment, Animal animal, Vet vet,
-                   Date date) {
-        this.animal = animal;
-        animal.startTreatment(this);
-        this.vet = vet;
-        vet.getConsults().add(this);
         this.date = date;
     }
 

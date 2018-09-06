@@ -22,6 +22,6 @@ public class AnimalTest {
         assertEquals(victor, nick.getClient());
         assertEquals("Nick", nick.getName());
         assertEquals(Animal.Sex.M, nick.getSex());
-        assertNull(nick.getTreatments());
+        assertEquals(0, nick.getTreatments().size());
     }
 }

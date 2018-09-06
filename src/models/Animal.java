@@ -19,6 +19,7 @@ public class Animal {
         this.name = name;
         this.sex = sex;
         this.age = age;
+        this.treatments = new Vector<>();
     }
 
     public Client getClient() {

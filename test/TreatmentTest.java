@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class TreatmentTest {
     private Client client;
@@ -57,7 +58,7 @@ public class TreatmentTest {
 
     @Test
     public void testTwoTreatments_OneConsult() {
-        assertEquals(0, animal.getTreatments().size());
+        assertEquals(1, animal.getTreatments().size());
 
         Treatment treatment1 = treatment;
         vet.scheduleConsult(treatment1, date1);

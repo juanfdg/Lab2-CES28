@@ -24,7 +24,9 @@ public class Vet{
     }
 
     public Treatment startTreatment(Animal animal){
-        return  new Treatment(animal);
+        Treatment t = new Treatment(animal);
+        animal.getTreatments().add(t);
+        return  t;
     }
 
     public void scheduleConsult(Treatment treatment, Date date) {
